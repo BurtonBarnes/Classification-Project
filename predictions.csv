@@ -1,0 +1,16 @@
+import os
+
+def get_telco_data():
+    filename = "predictions.csv"
+
+    if os.path.isfile(filename):
+        return pd.read_csv(filename)
+    else:
+        # read the SQL query into a dataframe
+        df = pd.read_sql('select * from customers join contract_types using (contract_type_id) join internet_service_types using (internet_service_type_id) join payment_types using (payment_type_id)', get_connection('trelco_churn'))
+
+        # Write that dataframe to disk for later. Called "caching" the data for later.
+        df.to_file(filename)
+
+        # Return the dataframe to the calling code
+        return df  
