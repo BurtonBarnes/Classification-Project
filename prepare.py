@@ -153,7 +153,7 @@ def get_chi_senior_citizen(train):
     
 ##################### prepare data for modeling ######################    
 
-    
+#model preparation    
 def model_prep(train, validate, test):
     '''Prepare train, validate, and test data for modeling'''
     
@@ -182,6 +182,7 @@ def model_prep(train, validate, test):
 
 ################# model evaluation on train and validate ####################
 
+#tree modeling
 def get_tree(train_X, validate_X, train_y, validate_y):
     '''get decision tree accuracy on train and validate data'''
     
@@ -194,7 +195,8 @@ def get_tree(train_X, validate_X, train_y, validate_y):
     #print result
     print(f"Accuracy of Decision Tree on train data is {clf.score(train_X, train_y)}")
     print(f"Accuracy of Decision Tree on validate data is {clf.score(validate_X, validate_y)}")
-                 
+    
+#forest modeling
 def get_forest(train_X, validate_X, train_y, validate_y):
     '''get random forest accuracy on train and validate data'''
     
@@ -205,7 +207,8 @@ def get_forest(train_X, validate_X, train_y, validate_y):
     # print result
     print(f"Accuracy of Random Forest on train is {rf.score(train_X, train_y)}")
     print(f"Accuracy of Random Forest on validate is {rf.score(validate_X, validate_y)}")
-            
+      
+# regression modeling
 def get_reg(train_X, validate_X, train_y, validate_y):
     '''get logistic regression accuracy on train and validate data'''
     
@@ -216,7 +219,8 @@ def get_reg(train_X, validate_X, train_y, validate_y):
     #print result
     print(f"Accuracy of Logistic Regression on train is {logit.score(train_X, train_y)}")
     print(f"Accuracy of Logistic Regression on validate is {logit.score(validate_X, validate_y)}")
-            
+       
+# KNN modeling
 def get_knn(train_X, validate_X, train_y, validate_y):
     '''get KNN accuracy on train and validate data'''
     
@@ -231,7 +235,7 @@ def get_knn(train_X, validate_X, train_y, validate_y):
         
 ################ model evaluation on test ################
 
-                 
+# forest modeling on test            
 def get_forest_test(train_X, test_X, train_y, test_y):
     '''get random forest accuracy on train and test data'''
     
